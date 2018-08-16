@@ -11,7 +11,7 @@ import java.util.function.Function;
  */
 public class Solution {
 
-    public static RandomListNode copyRandomList(RandomListNode head) {
+    public RandomListNode copyRandomList(RandomListNode head) {
         if (head == null)
             return null;
 
