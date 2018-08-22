@@ -9,13 +9,24 @@ import java.util.List;
  * <p>
  * <b>Note:</b><br>
  * The solution set must not contain duplicate triplets.
+ * <p>
+ * <b>Example:</b>
+ * <pre>
+ * Given array nums = [-1, 0, 1, 2, -1, -4],
+ *
+ * A solution set is:
+ * [
+ *   [-1, 0, 1],
+ *   [-1, -1, 2]
+ * ]
+ * </pre>
  *
  * @author Oleg Cherednik
- * @since 17.08.2018
+ * @since 22.08.2018
  */
 public class Solution {
 
-    public static List<List<Integer>> threeSum(int[] nums) {
+    public List<List<Integer>> threeSum(int[] nums) {
         if (nums == null || nums.length == 0) {
             return Collections.emptyList();
         }
