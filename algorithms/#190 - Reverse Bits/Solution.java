@@ -10,7 +10,7 @@
  * </pre>
  *
  * @author Oleg Cherednik
- * @since 17.08.2018
+ * @since 22.08.2018
  */
 public class Solution {
 
