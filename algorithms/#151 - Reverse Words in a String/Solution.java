@@ -3,8 +3,8 @@
  * <p>
  * <b>Example:</b>
  * <pre>
- * Input: "the sky is blue",
- * Output: "blue is sky the".
+ * <b>Input:</b> "the sky is blue",
+ * <b>Output:</b> "blue is sky the".
  * </pre>
  * <p>
  * <b>Note:</b>
