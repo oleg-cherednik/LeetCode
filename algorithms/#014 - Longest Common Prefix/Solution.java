@@ -24,6 +24,7 @@
 public class Solution {
 
     public static void main(String... args) {
+        System.out.println(longestCommonPrefix(new String[] { "ca", "a" }));
         System.out.println(longestCommonPrefix(new String[] { "flower", "flow", "flight" }));
         System.out.println(longestCommonPrefix(new String[] { "dog", "rececar", "car" }));
     }
@@ -36,8 +37,12 @@ public class Solution {
 
         String res = strs[0];
 
-        for (int i = 1, j = 0; !res.isEmpty() && i < strs.length; i++, j = 0) {
-            for (int length = Math.min(res.length(), strs[i].length()); j < length; j++)
+        for (int i = 0; i < strs.length; i++)
+            if (strs[i].length() < res.length())
+                res = strs[i];
+
+        for (int i = 0, j = 0; !res.isEmpty() && i < strs.length; i++, j = 0) {
+            for (; j < res.length(); j++)
                 if (res.charAt(j) != strs[i].charAt(j))
                     break;
 
