@@ -27,9 +27,8 @@ import java.util.List;
 public class Solution {
 
     public List<List<Integer>> threeSum(int[] nums) {
-        if (nums == null || nums.length == 0) {
+        if (nums == null || nums.length == 0)
             return Collections.emptyList();
-        }
 
         Arrays.sort(nums);
         List<List<Integer>> uniqueTriplets = new ArrayList<>();
@@ -41,17 +40,15 @@ public class Solution {
                 if (sum == 0) {
                     List<Integer> triplet = Arrays.asList(nums[i], nums[j], nums[k]);
 
-                    if (!uniqueTriplets.contains(triplet)) {
+                    if (!uniqueTriplets.contains(triplet))
                         uniqueTriplets.add(triplet);
-                    }
 
                     j++;
                     k--;
-                } else if (sum < 0) {
+                } else if (sum < 0)
                     j++;
-                } else {
+                else
                     k--;
-                }
             }
         }
 
