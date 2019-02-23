@@ -50,9 +50,9 @@ import java.util.Map;
 public class Solution {
 
     public static void main(String... args) {
-//        System.out.println(frequencySort("tree"));
-//        System.out.println(frequencySort("cccaaa"));
-        System.out.println(frequencySort("Aabb"));
+        System.out.println(frequencySort("tree"));      // eert
+        System.out.println(frequencySort("cccaaa"));    // cccaaa
+        System.out.println(frequencySort("Aabb"));      // bbAa
     }
 
     public static String frequencySort(String s) {
