@@ -1,5 +1,6 @@
 /**
- * Given a sorted array <i>nums</i>, remove the duplicates <b>in-place</b> such that each element appear only <i>once</i> and return the new length.
+ * Given a sorted array <tt>nums</tt>, remove the duplicates <b>in-place</b> such that each element appear only <tt>once</tt> and return the new
+ * length.
  * <p>
  * Do not allocate extra space for another array, you must do this by <b>modifying the input array in-place</b> with <tt>O(1)</tt> extra memory.
  * <p>
