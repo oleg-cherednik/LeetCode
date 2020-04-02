@@ -30,13 +30,16 @@ public class Solution {
 
     public static int singleNumber(int[] nums) {
         Set<Integer> unique = new HashSet<>();
-        int sum = 0;
+        int sum1 = 0;
+        int sum2 = 0;
 
         for (int num : nums) {
-            sum += num;
-            unique.add(num);
+            sum1 += num;
+
+            if (unique.add(num))
+                sum2 += 2 * num;
         }
 
-        return 2 * unique.stream().mapToInt(i -> i).sum() - sum;
+        return sum2 - sum1;
     }
 }
