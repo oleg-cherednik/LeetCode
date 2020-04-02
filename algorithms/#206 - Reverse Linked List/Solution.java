@@ -16,17 +16,11 @@
 public class Solution {
 
     public static void main(String... args) {
-        execute(1, 2, 3, 4, 5);        // 5->4->3->2->1->NULL
+        reverseList(1, 2, 3, 4, 5);        // 5->4->3->2->1->NULL
     }
 
-    private static void execute(int... values) {
-        ListNode head = build(values);
-        System.out.print("Input: ");
-        print(head);
-
-        head = reverseList(head);
-        System.out.print("Output: ");
-        print(head);
+    private static void reverseList(int... values) {
+        print(reverseList(build(values)));
     }
 
     public static ListNode reverseList(ListNode head) {
