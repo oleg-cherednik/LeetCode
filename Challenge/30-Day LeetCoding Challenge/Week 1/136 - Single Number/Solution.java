@@ -1,6 +1,3 @@
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * Given a <b>non-empty</b> array of integers, every element appears <i>twice</i> except for one. Find that single one.
  * <p>
@@ -30,17 +27,11 @@ public class Solution {
     }
 
     public static int singleNumber(int[] nums) {
-        Set<Integer> unique = new HashSet<>();
-        int sum1 = 0;
-        int sum2 = 0;
+        int val = 0;
 
-        for (int num : nums) {
-            sum1 += num;
+        for (int num : nums)
+            val ^= num;
 
-            if (unique.add(num))
-                sum2 += 2 * num;
-        }
-
-        return sum2 - sum1;
+        return val;
     }
 }
