@@ -4,7 +4,8 @@ import java.util.Set;
 /**
  * Given a <b>non-empty</b> array of integers, every element appears <i>twice</i> except for one. Find that single one.
  * <p>
- * <b>Note:</b><br>
+ * <b>Note:</b>
+ * <p>
  * Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
  * <p>
  * <b>Example 1:</b>
