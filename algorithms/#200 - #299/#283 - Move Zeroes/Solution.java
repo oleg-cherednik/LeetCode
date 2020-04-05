@@ -4,14 +4,16 @@ import java.util.Arrays;
  * Given an array <tt>nums</tt>, write a function to move all <tt>0</tt>'s to the end of it while maintaining the relative order of the non-zero
  * elements.
  * <p>
- * Example:
- * <p>
+ * <b>Example:</b>
+ * <pre>
  * Input: [0,1,0,3,12]
  * Output: [1,3,12,0,0]
- * Note:
- * <p>
- * You must do this in-place without making a copy of the array.
- * Minimize the total number of operations.
+ * </pre>
+ * <ol>
+ * <b>Note:</b>
+ * <li>You must do this in-place without making a copy of the array.</li>
+ * <li>Minimize the total number of operations.</li>
+ * </ol>
  *
  * @author Oleg Cherednik
  * @since 05.04.2019
