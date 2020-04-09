@@ -23,7 +23,7 @@
  * </ul>
  *
  * @author Oleg Cherednik
- * @since 07.04.2019
+ * @since 09.04.2019
  */
 public class Solution {
 
