@@ -17,6 +17,10 @@
  * Output: Node 4 from this list (Serialization: [4,5,6])
  * Since the list has two middle nodes with values 3 and 4, we return the second one.
  * </pre>
+ * <ul>
+ * <b>Note:</b>
+ * <li>The number of nodes in the given list will be between <tt>1 and </tt>100</tt>.</li>
+ * </ul>
  *
  * @author Oleg Cherednik
  * @since 07.04.2019
