@@ -25,7 +25,7 @@ import java.util.Optional;
  * </ul>
  *
  * @author Oleg Cherednik
- * @since 06.04.2019
+ * @since 06.04.2020
  */
 public class Solution {
 

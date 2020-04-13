@@ -12,7 +12,7 @@
  * If you have figured out the <tt>O(n)</tt> solution, try coding another solution using the divide and conquer approach, which is more subtle.
  *
  * @author Oleg Cherednik
- * @since 03.04.2019
+ * @since 03.04.2020
  */
 public class Solution {
 

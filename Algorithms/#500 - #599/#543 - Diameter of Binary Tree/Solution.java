@@ -15,7 +15,7 @@
  * <b>Note:</b> The length of path between two nodes is represented by the number of edges between them.
  *
  * @author Oleg Cherednik
- * @since 09.04.2019
+ * @since 09.04.2020
  */
 public class Solution {
 

@@ -23,7 +23,7 @@ import java.util.LinkedList;
  * </pre>
  *
  * @author Oleg Cherednik
- * @since 10.04.2019
+ * @since 10.04.2020
  */
 public class Solution {
 

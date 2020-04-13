@@ -16,7 +16,7 @@ import java.util.Arrays;
  * </ol>
  *
  * @author Oleg Cherednik
- * @since 05.04.2019
+ * @since 05.04.2020
  */
 public class Solution {
 
