@@ -45,13 +45,13 @@ public class Solution {
             maxHeap.add(stone);
 
         while (maxHeap.size() > 1) {
-            int one = maxHeap.poll();
-            int two = maxHeap.poll();
+            int one = maxHeap.remove();
+            int two = maxHeap.remove();
 
             if (one > two)
                 maxHeap.add(one - two);
         }
 
-        return maxHeap.isEmpty() ? 0 : maxHeap.poll();
+        return maxHeap.isEmpty() ? 0 : maxHeap.remove();
     }
 }
