@@ -57,29 +57,14 @@ public class Solution {
         if (offs == 0)
             return s;
 
-        char[] arr = s.toCharArray();
+        StringBuilder buf = new StringBuilder(s.length());
+        int mid = offs > 0 ? s.length() - offs : -offs;
 
-        for (int i = 0, j = arr.length - 1; i < j; i++, j--)
-            swap(arr, i, j);
+        for (int i = mid; i < s.length(); i++)
+            buf.append(s.charAt(i));
+        for (int i = 0; i < mid; i++)
+            buf.append(s.charAt(i));
 
-        if (offs > 0) {
-            for (int i = 0, j = offs - 1; i < j; i++, j--)
-                swap(arr, i, j);
-            for (int i = offs, j = arr.length - 1; i < j; i++, j--)
-                swap(arr, i, j);
-        } else {
-            for (int i = 0, j = arr.length + offs - 1; i < j; i++, j--)
-                swap(arr, i, j);
-            for (int i = arr.length + offs, j = arr.length - 1; i < j; i++, j--)
-                swap(arr, i, j);
-        }
-
-        return new String(arr);
-    }
-
-    private static void swap(char[] arr, int i, int j) {
-        char tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
+        return buf.toString();
     }
 }
