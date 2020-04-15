@@ -57,14 +57,15 @@ public class Solution {
         if (offs == 0)
             return s;
 
-        StringBuilder buf = new StringBuilder(s.length());
+        char[] arr = new char[s.length()];
         int mid = offs > 0 ? s.length() - offs : -offs;
+        int j = 0;
 
-        for (int i = mid; i < s.length(); i++)
-            buf.append(s.charAt(i));
-        for (int i = 0; i < mid; i++)
-            buf.append(s.charAt(i));
+        for (int i = mid; i < s.length(); i++, j++)
+            arr[j] = s.charAt(i);
+        for (int i = 0; i < mid; i++, j++)
+            arr[j] = s.charAt(i);
 
-        return buf.toString();
+        return new String(arr);
     }
 }
