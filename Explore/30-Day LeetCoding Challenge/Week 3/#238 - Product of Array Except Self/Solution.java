@@ -26,24 +26,17 @@ public class Solution {
     public static void main(String... args) {
         System.out.println(Arrays.toString(productExceptSelf(new int[] { 1, 2, 3, 4 })));       // [24, 12, 8, 6]
         System.out.println(Arrays.toString(productExceptSelf(new int[] { 1, 2, 3, 4, 5, 6 }))); // [720, 360, 240, 180, 144, 120]
+        System.out.println(Arrays.toString(productExceptSelf(new int[] { 1 })));                // [1]
     }
 
     public static int[] productExceptSelf(int[] nums) {
         int[] res = new int[nums.length];
 
-        for (int i = nums.length - 1; i >= 0; i--) {
-            res[i] = nums[i];
+        for (int i = nums.length - 1; i >= 0; i--)
+            res[i] = i + 1 < res.length ? nums[i] * res[i + 1] : nums[i];
 
-            if (i != nums.length - 1)
-                res[i] *= res[i + 1];
-        }
-
-        if (res.length > 1) {
-            for (int i = 0, left = 1; i < nums.length; left *= nums[i++]) {
-                int right = i + 1 < res.length ? res[i + 1] : 1;
-                res[i] = left * right;
-            }
-        }
+        for (int i = 0, left = 1; i < nums.length; left *= nums[i++])
+            res[i] = left * (i + 1 < res.length ? res[i + 1] : 1);
 
         return res;
     }
