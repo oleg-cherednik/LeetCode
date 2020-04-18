@@ -54,8 +54,8 @@ public class Solution {
         System.out.println(numberOfArrays("1000", 10));         // 0
         System.out.println(numberOfArrays("1317", 2000));       // 8
         System.out.println(numberOfArrays("2020", 30));         // 1
-        // TODO time limit exceeded on big input
         System.out.println(numberOfArrays("1234567890", 90));   // 34
+        // TODO time limit exceeded on big input
     }
 
     public static int numberOfArrays(String s, int k) {
