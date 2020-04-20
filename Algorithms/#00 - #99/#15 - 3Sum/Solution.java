@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * Given an array <tt>nums</tt> of <tt>n</tt> integers, are there elements <tt>a</tt>, <tt>b</tt>, <tt>c</tt> in <tt>nums</tt> such that <tt>a + b + c
- * = 0</tt>? Find all unique triplets in the array which gives the sum of zero.
+ * = 0</tt>? Find all unique triplets in the array which gives the <tt>sum</tt> of <tt>zero</tt>.
  * <p>
  * <b>Note:</b><br>
  * The solution set must not contain duplicate triplets.
@@ -26,7 +26,40 @@ import java.util.List;
  */
 public class Solution {
 
-    public List<List<Integer>> threeSum(int[] nums) {
+    public static void main(String... args) {
+        threeSumAndPrint(-1, 0, 1, 2, -1, -4);  // [[-1, 0, 1],[-1, -1, 2]]
+    }
+
+    private static void threeSumAndPrint(int... nums) {
+        List<List<Integer>> triplets = threeSum(nums);
+
+        boolean comma1 = false;
+        System.out.print('[');
+
+        for (List<Integer> triplet : triplets) {
+            if (comma1)
+                System.out.print(',');
+
+            comma1 = true;
+
+            boolean comma2 = false;
+            System.out.print('[');
+
+            for (int val : triplet) {
+                if (comma2)
+                    System.out.print(',');
+
+                comma2 = true;
+                System.out.print(val);
+            }
+
+            System.out.print(']');
+        }
+
+        System.out.println(']');
+    }
+
+    public static List<List<Integer>> threeSum(int[] nums) {
         if (nums == null || nums.length == 0)
             return Collections.emptyList();
 
