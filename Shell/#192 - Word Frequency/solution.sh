@@ -1,4 +1,5 @@
 #!/bin/bash
+#2020.04.20
 declare -A map
 
 while IFS= read -r line
