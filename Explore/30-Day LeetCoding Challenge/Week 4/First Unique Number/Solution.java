@@ -118,11 +118,9 @@ public class Solution {
         private final Set<Integer> unique = new LinkedHashSet<>();
 
         public FirstUnique(int[] nums) {
-            if (nums == null)
-                return;
-
-            for (int num : nums)
-                add(num);
+            if (nums != null)
+                for (int num : nums)
+                    add(num);
         }
 
         public int showFirstUnique() {
