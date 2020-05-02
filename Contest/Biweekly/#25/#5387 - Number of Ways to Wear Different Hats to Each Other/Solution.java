@@ -86,6 +86,8 @@ public class Solution {
                 Arrays.asList(19, 21, 24),
                 Arrays.asList(1, 3, 5, 6, 8, 10, 11, 13, 14, 15, 16, 17, 18, 20, 22, 24, 25),
                 Arrays.asList(3, 7, 9))));
+
+        // TODO time limit exceeded on big input
     }
 
     public static int numberWays(List<List<Integer>> hats) {
