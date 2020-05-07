@@ -4,9 +4,9 @@ import java.util.List;
 
 /**
  * For a non-negative integer <tt>X</tt>, the <i>array-form</i> of <tt>X</tt> is an array of its digits in left to right order. For example, if <tt>X
- * =  1231</tt>, then the array form is <tt>[1,2,3,1]</tt>.
+ * = 1231</tt>, then the array form is <tt>[1,2,3,1]</tt>.
  * <p>
- * Given the array-form <tt>A</tt> of a non-negative integer <tt>X, return the array-form of the integer <tt>X+K</tt>.
+ * Given the array-form <tt>A</tt> of a non-negative integer <tt>X</tt>, return the array-form of the integer <tt>X+K</tt>.
  * <p>
  * <b>Example 1:</b>
  * <pre>
@@ -44,6 +44,7 @@ import java.util.List;
  * @since 23.02.2019
  */
 public class Solution {
+
     public static void main(String... args) {
         System.out.println(Arrays.toString(addToArrayForm(new int[] { 1, 2, 0, 0 }, 34).stream().mapToInt(i -> i).toArray()));  // 1234
         System.out.println(Arrays.toString(addToArrayForm(new int[] { 2, 7, 4 }, 181).stream().mapToInt(i -> i).toArray()));    // 455
