@@ -29,55 +29,36 @@ public class Solution {
     }
 
     public static List<String> letterCombinations(String digits) {
-        return new ArrayList<>(letterCombinations(0, digits, new LinkedList<>()));
+        String[] letters = { null, null, "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+        return new ArrayList<>(letterCombinations(0, digits, letters, new LinkedList<>()));
     }
 
-    private static Queue<String> letterCombinations(int i, String digits, Queue<String> queue) {
+    private static Queue<String> letterCombinations(int i, String digits, String[] letters, Queue<String> queue) {
         if (i >= digits.length())
             return queue;
 
-        char[] letters = getLetters(digits.charAt(i));
+        String let = letters[digits.charAt(i) - '0'];
 
-        if (letters == null)
+        if (let == null)
             queue.clear();
         else {
             if (queue.isEmpty()) {
-                for (char letter : letters)
-                    queue.add(String.valueOf(letter));
+                for (int j = 0; j < let.length(); j++)
+                    queue.add(String.valueOf(let.charAt(j)));
             } else {
                 int size = queue.size();
 
                 for (int j = 0; j < size; j++) {
                     String str = queue.remove();
 
-                    for (char letter : letters)
-                        queue.add(str + letter);
+                    for (int k = 0; k < let.length(); k++)
+                        queue.add(str + let.charAt(k));
                 }
             }
 
-            letterCombinations(i + 1, digits, queue);
+            letterCombinations(i + 1, digits, letters, queue);
         }
 
         return queue;
-    }
-
-    private static char[] getLetters(char ch) {
-        if (ch == '2')
-            return new char[] { 'a', 'b', 'c' };
-        if (ch == '3')
-            return new char[] { 'd', 'e', 'f' };
-        if (ch == '4')
-            return new char[] { 'g', 'h', 'i' };
-        if (ch == '5')
-            return new char[] { 'j', 'k', 'l' };
-        if (ch == '6')
-            return new char[] { 'm', 'n', 'o' };
-        if (ch == '7')
-            return new char[] { 'p', 'q', 'r', 's' };
-        if (ch == '8')
-            return new char[] { 't', 'u', 'v' };
-        if (ch == '9')
-            return new char[] { 'w', 'x', 'y', 'z' };
-        return null;
     }
 }
