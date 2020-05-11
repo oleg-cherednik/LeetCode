@@ -1,8 +1,8 @@
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedHashSet;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -44,49 +44,25 @@ public class Solution {
     }
 
     public static List<List<Integer>> fourSum(int[] nums, int target) {
-        class Data {
+        Arrays.sort(nums);
+        Map<String, List<Integer>> map = new HashMap<>();
 
-            final int a;
-            final int b;
-            final int c;
-            final int d;
+        for (int i = 0; i < nums.length - 3; i++) {
+            for (int j = i + 1; j < nums.length - 2; j++) {
+                for (int k = j + 1; k < nums.length - 1; k++) {
+                    for (int l = k + 1; l < nums.length; l++) {
+                        int a = nums[i];
+                        int b = nums[j];
+                        int c = nums[k];
+                        int d = nums[l];
 
-            public Data(int a, int b, int c, int d) {
-                this.a = a;
-                this.b = b;
-                this.c = c;
-                this.d = d;
-            }
-
-            public List<Integer> list() {
-                return Arrays.asList(a, b, c, d);
-            }
-
-            @Override
-            public boolean equals(Object obj) {
-                if (this == obj)
-                    return true;
-                if (!(obj instanceof Data))
-                    return false;
-                return a == ((Data)obj).a && b == ((Data)obj).b && c == ((Data)obj).c && d == ((Data)obj).d;
-            }
-
-            @Override
-            public int hashCode() {
-                return Objects.hash(a, b, c, d);
+                        if (a + b + c + d == target)
+                            map.put(String.format("%s|%s|%s|%s", a, b, c, d), Arrays.asList(a, b, c, d));
+                    }
+                }
             }
         }
 
-        Arrays.sort(nums);
-        Set<Data> unique = new LinkedHashSet<>();
-
-        for (int i = 0; i < nums.length - 3; i++)
-            for (int j = i + 1; j < nums.length - 2; j++)
-                for (int k = j + 1; k < nums.length - 1; k++)
-                    for (int l = k + 1; l < nums.length; l++)
-                        if (nums[i] + nums[j] + nums[k] + nums[l] == target)
-                            unique.add(new Data(nums[i], nums[j], nums[k], nums[l]));
-
-        return unique.stream().map(Data::list).collect(Collectors.toList());
+        return new ArrayList<>(map.values());
     }
 }
