@@ -73,7 +73,7 @@ public class Solution {
 
         for (int i = 1; i < A.length; i++) {
             maxSoFar = Math.max(A[i], maxSoFar + A[i]);
-            maxTotal = Math.max(maxSoFar, maxTotal);
+            maxTotal = Math.max(maxTotal, maxSoFar);
 
             minSoFar = Math.min(A[i], minSoFar + A[i]);
             minTotal = Math.min(minTotal, minSoFar);
