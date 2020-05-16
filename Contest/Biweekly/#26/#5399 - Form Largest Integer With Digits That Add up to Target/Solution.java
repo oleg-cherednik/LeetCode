@@ -1,4 +1,5 @@
-import java.util.Comparator;
+import java.math.BigInteger;
+import java.util.Arrays;
 
 /**
  * <ul>
@@ -58,41 +59,33 @@ import java.util.Comparator;
 public class Solution {
 
     public static void main(String... args) {
-        System.out.println(largestNumber(new int[] { 4, 3, 2, 5, 6, 7, 2, 5, 5 }, 9));  // 7772
-        System.out.println(largestNumber(new int[] { 7, 6, 5, 5, 5, 6, 8, 7, 8 }, 12));  // 85
-        System.out.println(largestNumber(new int[] { 2, 4, 6, 2, 4, 6, 4, 4, 4 }, 5));  // 0
-        System.out.println(largestNumber(new int[] { 6, 10, 15, 40, 40, 40, 40, 40, 40 }, 47));  // 32211
-        // TODO out of time
-//        System.out.println(largestNumber(new int[] { 2, 4, 2, 5, 3, 2, 5, 5, 4 }, 739));  // 32211
+        System.out.println(largestNumber(new int[] { 4, 3, 2, 5, 6, 7, 2, 5, 5 }, 9));          // 7772
+        System.out.println(largestNumber(new int[] { 7, 6, 5, 5, 5, 6, 8, 7, 8 }, 12));         // 85
+        System.out.println(largestNumber(new int[] { 2, 4, 6, 2, 4, 6, 4, 4, 4 }, 5));          // 0
+        System.out.println(largestNumber(new int[] { 6, 10, 15, 40, 40, 40, 40, 40, 40 }, 47)); // 32211
+        System.out.println(largestNumber(new int[] { 2, 4, 2, 5, 3, 2, 5, 5, 4 }, 739));
     }
 
     public static String largestNumber(int[] cost, int target) {
-        String[] res = { "0" };
-        largestNumber(cost, cost.length - 1, target, new StringBuilder(), res);
-        return res[0];
-    }
+        BigInteger[] dp = new BigInteger[target + 1];
+        Arrays.fill(dp, BigInteger.valueOf(-1));
+        dp[0] = BigInteger.ZERO;
 
-    private static void largestNumber(int[] cost, int i, int target, StringBuilder buf, String[] res) {
-        if (target == 0) {
-            String str = buf.toString();
+        for (int x = 0; x < target + 1; x++) {
+            for (int y = 0; y < 9; y++) {
+                if (x - cost[y] < 0 || dp[x - cost[y]].compareTo(BigInteger.ZERO) < 0)
+                    continue;
 
-            if (CMP.compare(res[0], str) > 0)
-                res[0] = str;
-        } else if (i < 0)
-            return;
-
-        for (int j = i; j >= 0; j--) {
-            if (cost[j] > target)
-                continue;
-
-            buf.append(j + 1);
-            largestNumber(cost, j, target - cost[j], buf, res);
-            buf.setLength(buf.length() - 1);
+                BigInteger one = dp[x - cost[y]].multiply(BigInteger.TEN).add(BigInteger.valueOf(y)).add(BigInteger.ONE);
+                BigInteger two = dp[x];
+                int res = one.compareTo(two);
+                dp[x] = res >= 0 ? one : two;
+            }
         }
+
+        BigInteger one = dp[target];
+        int res = one.compareTo(BigInteger.ZERO);
+        return res > 0 ? one.toString() : BigInteger.ZERO.toString();
     }
 
-    private static final Comparator<String> CMP = (one, two) -> {
-        int r = Integer.compare(two.length(), one.length());
-        return r == 0 ? two.compareTo(one) : r;
-    };
 }
