@@ -71,21 +71,16 @@ public class Solution {
         Arrays.fill(dp, BigInteger.valueOf(-1));
         dp[0] = BigInteger.ZERO;
 
-        for (int x = 0; x < target + 1; x++) {
-            for (int y = 0; y < 9; y++) {
-                if (x - cost[y] < 0 || dp[x - cost[y]].compareTo(BigInteger.ZERO) < 0)
-                    continue;
-
-                BigInteger one = dp[x - cost[y]].multiply(BigInteger.TEN).add(BigInteger.valueOf(y)).add(BigInteger.ONE);
-                BigInteger two = dp[x];
-                int res = one.compareTo(two);
-                dp[x] = res >= 0 ? one : two;
+        for (int i = 0; i < target + 1; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (i - cost[j] >= 0 && dp[i - cost[j]].compareTo(BigInteger.ZERO) >= 0) {
+                    BigInteger one = dp[i - cost[j]].multiply(BigInteger.TEN).add(BigInteger.valueOf(j)).add(BigInteger.ONE);
+                    dp[i] = one.compareTo(dp[i]) >= 0 ? one : dp[i];
+                }
             }
         }
 
-        BigInteger one = dp[target];
-        int res = one.compareTo(BigInteger.ZERO);
-        return res > 0 ? one.toString() : BigInteger.ZERO.toString();
+        return String.valueOf(dp[target].compareTo(BigInteger.ZERO) > 0 ? dp[target] : BigInteger.ZERO);
     }
 
 }
