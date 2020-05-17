@@ -26,11 +26,11 @@ import java.util.Queue;
 public class Solution {
 
     public static void main(String... args) {
-        System.out.println(macDepth(3, 9, 20, null, null, 15, 7));  // 3
-        System.out.println(macDepth());                             // 0
+        System.out.println(maxDepth(3, 9, 20, null, null, 15, 7));  // 3
+        System.out.println(maxDepth());                             // 0
     }
 
-    private static int macDepth(Integer... vals) {
+    private static int maxDepth(Integer... vals) {
         return maxDepth(build(vals));
     }
 
