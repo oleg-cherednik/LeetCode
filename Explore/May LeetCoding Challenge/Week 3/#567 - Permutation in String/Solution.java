@@ -34,13 +34,10 @@ public class Solution {
         int[] actual = new int[26];
 
         for (int i = 0, j = 0; j < s2.length(); j++) {
-            int length = j - i + 1;
             actual[s2.charAt(j) - 'a']++;
 
-
-            if (length < s1.length())
+            if (j - i + 1 < s1.length())
                 continue;
-
             if (isEquals(expected, actual))
                 return true;
 
