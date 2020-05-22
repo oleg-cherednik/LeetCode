@@ -99,9 +99,5 @@ public class Solution {
             val = x;
         }
 
-        public String toString() {
-            return String.valueOf(val);
-        }
-
     }
 }
