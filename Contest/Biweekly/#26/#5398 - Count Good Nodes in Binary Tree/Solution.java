@@ -105,9 +105,5 @@ public class Solution {
         TreeNode(int x) {
             val = x;
         }
-
-        public String toString() {
-            return String.valueOf(val);
-        }
     }
 }
