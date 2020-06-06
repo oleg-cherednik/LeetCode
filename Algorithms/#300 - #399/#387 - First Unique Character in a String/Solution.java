@@ -18,9 +18,9 @@
 public class Solution {
 
     public static void main(String... args) {
-        System.out.println(firstUniqChar("leetcode"));
-        System.out.println(firstUniqChar("loveleetcode"));
-        System.out.println(firstUniqChar("aabbcc"));
+        System.out.println(firstUniqChar("leetcode"));      // 0
+        System.out.println(firstUniqChar("loveleetcode"));  // 2
+        System.out.println(firstUniqChar("aabbcc"));        // -1
     }
 
     public static int firstUniqChar(String s) {
