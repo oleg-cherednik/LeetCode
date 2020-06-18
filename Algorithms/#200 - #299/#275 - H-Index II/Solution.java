@@ -1,7 +1,6 @@
 /**
  * Given an array of citations <b>sorted in ascending order</b> (each citation is a non-negative integer) of a researcher, write a function to
- * compute
- * the researcher's h-index.
+ * compute the researcher's h-index.
  * <p>
  * According to the <a href="https://en.wikipedia.org/wiki/H-index">definition of h-index on Wikipedia</a>: "A scientist has index <tt>h</tt> if
  * <tt>h</tt> of his/her <tt>N</tt> papers have <b>at least</b> <tt>h</tt> citations each, and the other <tt>N − h</tt> papers have <b>no more
