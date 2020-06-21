@@ -48,7 +48,7 @@ public class Solution {
             nums.add(i + 1);
 
         k--;
-        StringBuilder buf = new StringBuilder();
+        StringBuilder buf = new StringBuilder(n);
 
         for (int i = n - 1; i >= 0; k %= fact[i], i--)
             buf.append(nums.remove((int)(k / fact[i])));
