@@ -42,7 +42,7 @@ public class Solution {
 
     public static String getPermutation(int n, int k) {
         int[] fact = new int[n];
-        List<Integer> nums = new ArrayList<>();
+        List<Integer> nums = new ArrayList<>(n);
 
         for (int i = 0; i < n; fact[i] = i == 0 ? 1 : i * fact[i - 1], i++)
             nums.add(i + 1);
