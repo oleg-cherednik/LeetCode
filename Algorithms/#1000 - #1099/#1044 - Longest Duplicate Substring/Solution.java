@@ -39,7 +39,7 @@ public class Solution {
         int hi = S.length();
 
         while (lo != hi) {
-            int mi = lo + (hi - lo) / 2;
+            int mi = (lo + hi) / 2;
 
             if (possible(S, mi) != -1)
                 lo = mi + 1;
