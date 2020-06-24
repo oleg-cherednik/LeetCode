@@ -16,7 +16,7 @@
  * </pre>
  *
  * @author Oleg Cherednik
- * @since 23.05.2020
+ * @since 25.06.2020
  */
 public class Solution {
 
