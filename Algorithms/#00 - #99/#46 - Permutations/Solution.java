@@ -48,7 +48,7 @@ public class Solution {
         return buf.toString();
     }
 
-    public static List<List<Integer>> permute(int[] nums) {
+    public static List<List<Integer>> permute(int... nums) {
         if (nums == null || nums.length == 0)
             return Collections.emptyList();
 
