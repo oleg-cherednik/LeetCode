@@ -37,7 +37,7 @@ public class Solution {
                 { 'o', 'a', 'a', 'n' },
                 { 'e', 't', 'a', 'e' },
                 { 'i', 'h', 'k', 'r' },
-                { 'i', 'f', 'l', 'v' } }, new String[] { "oath", "pea", "eat", "rain" }));
+                { 'i', 'f', 'l', 'v' } }, new String[] { "oath", "pea", "eat", "rain" }));  // [oath, eat]
     }
 
     public static List<String> findWords(char[][] board, String[] words) {
