@@ -124,10 +124,6 @@ public class Solution {
             this.val = val;
         }
 
-        public String toString() {
-            return String.valueOf(val);
-        }
-
     }
 
 }
