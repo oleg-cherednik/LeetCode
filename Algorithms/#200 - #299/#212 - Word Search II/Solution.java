@@ -12,9 +12,9 @@ import java.util.List;
  * <pre>
  * Input:
  * board = [
- *   ['o','a','a','n'],
- *   ['e','t','a','e'],
- *   ['i','h','k','r'],
+ *   ['<font color="orange">o</font>','<font color="orange">a</font>','a','n'],
+ *   ['e','<font color="red">t</font>','<font color="red">a</font>','<font color="red">e</font>'],
+ *   ['i','<font color="orange">h</font>','k','r'],
  *   ['i','f','l','v']
  * ]
  * words = ["oath","pea","eat","rain"]
