@@ -25,29 +25,20 @@ public class Solution {
     }
 
     public static int nthUglyNumber(int n) {
-        int two = 0;
-        int three = 0;
-        int five = 0;
+        int[] num = { 0, 0, 0, 0, 0, 0 };
+        int[] tmp = { 0, 0, 2, 3, 0, 5 };
 
-        int tmpTwo = 2;
-        int tmpThree = 3;
-        int tmpFive = 5;
-
-        int[] a = new int[n];
-        a[0] = 1;
+        int[] arr = new int[n];
+        arr[0] = 1;
 
         for (int i = 1; i < n; i++) {
-            a[i] = tmpTwo > tmpThree ? Math.min(tmpFive, tmpThree) : Math.min(tmpFive, tmpTwo);
-
-            if (a[i] == tmpTwo)
-                tmpTwo = a[++two] * 2;
-            if (a[i] == tmpThree)
-                tmpThree = a[++three] * 3;
-            if (a[i] == tmpFive)
-                tmpFive = a[++five] * 5;
+            arr[i] = Math.min(tmp[5], Math.min(tmp[2], tmp[3]));
+            tmp[2] = arr[i] == tmp[2] ? arr[++num[2]] * 2 : tmp[2];
+            tmp[3] = arr[i] == tmp[3] ? arr[++num[3]] * 3 : tmp[3];
+            tmp[5] = arr[i] == tmp[5] ? arr[++num[5]] * 5 : tmp[5];
         }
 
-        return a[n - 1];
+        return arr[n - 1];
     }
 
 }
