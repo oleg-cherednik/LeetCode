@@ -31,14 +31,8 @@ public class Solution {
         System.out.println(hammingDistance(1, 4));  // 2
     }
 
-    private static final int G31 = 0b0100_1001_0010_0100_1001_0010_0100_1001;
-    private static final int G32 = 0b0011_1000_0001_1100_0000_1110_0000_0111;
-
     public static int hammingDistance(int x, int y) {
-        int val = x ^ y;
-        val = (val & G31) + ((val >> 1) & G31) + ((val >> 2) & G31);
-        val = ((val + (val >> 3)) & G32) + ((val >> 6) & G32);
-        return (val + (val >> 9) + (val >> 18) + (val >> 27)) & 0x3f;
+        return Integer.bitCount(x ^ y);
     }
 
 }
