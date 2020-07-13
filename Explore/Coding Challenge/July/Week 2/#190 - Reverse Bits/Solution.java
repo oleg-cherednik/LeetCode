@@ -38,22 +38,12 @@ public class Solution {
     }
 
     public static int reverseBits(int n) {
-        int res = 0;
-
-        for (int hi = 31, lo = 0; hi > lo; hi--, lo++) {
-            res = set(res, lo, isSet(n, hi));
-            res = set(res, hi, isSet(n, lo));
-        }
-
-        return res;
-    }
-
-    private static int set(int n, int bit, boolean val) {
-        return val ? n | (1 << bit) : n & ~(1 << bit);
-    }
-
-    private static boolean isSet(int val, int bit) {
-        return (val & (1 << bit)) != 0;
+        n = (n >>> 16) | (n << 16);
+        n = ((n & 0xFF00ff00) >>> 8) | ((n & 0x00FF00FF) << 8);
+        n = ((n & 0xF0F0F0F0) >>> 4) | ((n & 0x0F0F0F0F) << 4);
+        n = ((n & 0xCCCCCCCC) >>> 2) | ((n & 0x33333333) << 2);
+        n = ((n & 0xAAAAAAAA) >>> 1) | ((n & 0x55555555) << 1);
+        return n;
     }
 
 }
