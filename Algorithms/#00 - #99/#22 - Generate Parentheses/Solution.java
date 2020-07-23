@@ -22,8 +22,8 @@ public class Solution {
 
     public static void main(String... args) {
         System.out.println(generateParenthesis(1)); // [()]
-        System.out.println(generateParenthesis(2)); // [()(), (())]
-        System.out.println(generateParenthesis(3)); // [()()(), ()(()), (())(), (()()), ((()))]
+        System.out.println(generateParenthesis(2)); // [(()), ()()]
+        System.out.println(generateParenthesis(3)); // [((())), (()()), (())(), ()(()), ()()()]
     }
 
     public static List<String> generateParenthesis(int n) {
@@ -34,10 +34,10 @@ public class Solution {
         if (count == 0 && str.length() == n * 2)
             res.add(str);
         else {
-            if (count > 0)
-                generateParenthesis(str + ')', open, count - 1, n, res);
             if (open < n)
                 generateParenthesis(str + '(', open + 1, count + 1, n, res);
+            if (count > 0)
+                generateParenthesis(str + ')', open, count - 1, n, res);
         }
 
         return res;
