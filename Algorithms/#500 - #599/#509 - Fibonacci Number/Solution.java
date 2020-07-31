@@ -35,6 +35,7 @@
 public class Solution {
 
     public static void main(String... args) {
+        System.out.println(fib(0));     // 0
         System.out.println(fib(1));     // 1
         System.out.println(fib(2));     // 1
         System.out.println(fib(3));     // 2
