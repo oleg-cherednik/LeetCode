@@ -28,10 +28,7 @@ public class Solution {
         List<Integer> res = new ArrayList<>();
 
         for (int i = 0; i < nums.length; i++) {
-            int n = nums[i];
-
-            if (n < 0)
-                n = -n;
+            int n = Math.abs(nums[i]);
 
             if (nums[n - 1] < 0)
                 res.add(n);
