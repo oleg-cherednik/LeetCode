@@ -25,7 +25,7 @@ public class Solution {
     }
 
     public static List<Integer> findDuplicates(int[] nums) {
-        List<Integer> res = new ArrayList<>();
+        List<Integer> res = new ArrayList<>(nums.length);
 
         for (int i = 0; i < nums.length; i++) {
             int n = nums[i];
