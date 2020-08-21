@@ -31,7 +31,7 @@ public class Solution {
         for (int i = 0, j = A.length - 1; i < j; ) {
             if (isEven(A[i]))
                 i++;
-            else if (!isEven(A[j]))
+            else if (isOdd(A[j]))
                 j--;
             else
                 swap(A, i, j);
@@ -42,6 +42,10 @@ public class Solution {
 
     private static boolean isEven(int val) {
         return (val & 0x1) == 0;
+    }
+
+    private static boolean isOdd(int val) {
+        return (val & 0x1) == 1;
     }
 
     private static void swap(int[] A, int i, int j) {
