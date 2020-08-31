@@ -110,9 +110,5 @@ public class Solution {
         TreeNode(int x) {
             val = x;
         }
-
-        public String toString() {
-            return String.format("%d (%d)", val, level);
-        }
     }
 }
