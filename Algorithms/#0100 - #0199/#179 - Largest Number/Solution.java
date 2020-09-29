@@ -36,4 +36,3 @@ public class Solution {
         return str.charAt(0) == '0' ? "0" : str;
     }
 }
-`
