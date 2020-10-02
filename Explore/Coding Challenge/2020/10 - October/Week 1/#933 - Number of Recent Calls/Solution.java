@@ -1,8 +1,6 @@
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-import java.util.TreeSet;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * You have a <tt>RecentCounter</tt> class which counts the number of recent requests within a certain time frame.
@@ -56,13 +54,16 @@ public class Solution {
 
 class RecentCounter {
 
-    private final TreeSet<Integer> set = new TreeSet<>();
-    private final Map<Integer, Integer> map = new HashMap<>();
-    private int idx;
+    private final Queue<Integer> queue = new LinkedList<>();
 
     public int ping(int t) {
-        set.add(t);
-        map.put(t, idx++);
-        return idx - map.get(Optional.ofNullable(set.ceiling(t - 3000)).orElse(0));
+        int lower = t - 3000;
+
+        while (!queue.isEmpty() && queue.element() < lower) {
+            queue.poll();
+        }
+
+        queue.add(t);
+        return queue.size();
     }
 }
