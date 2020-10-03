@@ -49,7 +49,7 @@ import java.util.List;
  * </ul>
  *
  * @author Oleg Cherednik
- * @since 03.04.2020
+ * @since 03.10.2020
  */
 public class Solution {
 
