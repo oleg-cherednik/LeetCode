@@ -67,7 +67,7 @@ public class Solution {
                     buf.append(node.val);
                     row.add(node.left);
                     row.add(node.right);
-                    hasMore = node.left != null || node.right != null;
+                    hasMore |= node.left != null || node.right != null;
                 }
             }
 
