@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -38,7 +39,10 @@ public class Solution {
     public static void main(String... args) {
         System.out.println(test(2, 1, 3));                                              // [2, 1, 3]
         System.out.println(test());                                                     // []
-        System.out.println(test(8, 4, 12, 2, 6, 10, 14, null, 3, 5, 7, 9, 11, 13, 15)); // [8, 4, 12, 2, 6, 10, 14, null, 3, 5, 7, 9, 11, 13, 15]
+        System.out.println(test(8, 4, 12, 2, 6, 10, 14, null,
+                3, 5, 7, 9, 11, 13, 15));                   // [8, 4, 12, 2, 6, 10, 14, null, 3, 5, 7, 9, 11, 13, 15]
+        System.out.println(test(8, 4, 12, 2, 6, 10, 14, 1,
+                null, null, null, null, null, null, 15));   // [8, 4, 12, 2, 6, 10, 14, 1, null, null, null, null, null, null, 15]
     }
 
     private static List<Integer> test(Integer... vals) {
@@ -79,8 +83,6 @@ public class Solution {
 
     public static class Codec {
 
-        private static final String NULL = "_";
-
         // Encodes a tree to a single string.
         public String serialize(TreeNode root) {
             if (root == null)
@@ -99,13 +101,12 @@ public class Solution {
                     TreeNode node = queue.poll();
 
                     if (node == null)
-                        row.add(null);
-                    else {
-                        hasNext = true;
-                        row.add(node.val);
-                        queue.add(node.left);
-                        queue.add(node.right);
-                    }
+                        continue;
+
+                    hasNext = true;
+                    row.add(node.val);
+                    queue.add(node.left);
+                    queue.add(node.right);
                 }
 
                 if (!hasNext)
@@ -114,9 +115,8 @@ public class Solution {
                 for (Integer val : row) {
                     if (buf.length() > 0)
                         buf.append(' ');
-                    buf.append(val == null ? NULL : String.valueOf(val));
+                    buf.append(val);
                 }
-
             }
 
             return buf.toString();
@@ -127,27 +127,30 @@ public class Solution {
             if (data == null || data.isEmpty())
                 return null;
 
-            int i = 0;
-            String[] arr = data.split(" ");
-            TreeNode root = new TreeNode(Integer.parseInt(arr[i++]));
+            int[] arr = Arrays.stream(data.split(" "))
+                              .mapToInt(Integer::parseInt)
+                              .toArray();
 
-            Queue<TreeNode> queue = new LinkedList<>();
-            queue.add(root);
+            TreeNode root = null;
 
-            for (; i < arr.length; i++) {
-                TreeNode parent = queue.remove();
-
-                if (!NULL.equals(arr[i]))
-                    queue.add(parent.left = new TreeNode(Integer.parseInt(arr[i])));
-
-                if (++i == arr.length)
-                    break;
-
-                if (!arr[i].equals(NULL))
-                    queue.add(parent.right = new TreeNode(Integer.parseInt(arr[i])));
+            for (int val : arr) {
+                if (root == null)
+                    root = new TreeNode(val);
+                else
+                    insertIntoBst(val, root, null);
             }
 
             return root;
+        }
+
+        private static void insertIntoBst(int val, TreeNode node, TreeNode parent) {
+            if (node == null) {
+                if (val < parent.val)
+                    parent.left = new TreeNode(val);
+                else
+                    parent.right = new TreeNode(val);
+            } else
+                insertIntoBst(val, val < node.val ? node.left : node.right, node);
         }
     }
 
@@ -184,10 +187,6 @@ public class Solution {
 
         TreeNode(int val) {
             this.val = val;
-        }
-
-        public String toString() {
-            return String.valueOf(val);
         }
     }
 
