@@ -1,8 +1,10 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.stream.Collectors;
 
 /**
  * Serialization is converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted
@@ -85,10 +87,16 @@ public class Solution {
 
         // Encodes a tree to a single string.
         public String serialize(TreeNode root) {
-            if (root == null)
-                return "";
+            return bfs(root).stream()
+                            .map(String::valueOf)
+                            .collect(Collectors.joining(" "));
+        }
 
-            StringBuilder buf = new StringBuilder();
+        private static List<Integer> bfs(TreeNode root) {
+            if (root == null)
+                return Collections.emptyList();
+
+            List<Integer> res = new ArrayList<>();
             Queue<TreeNode> queue = new LinkedList<>();
             queue.add(root);
 
@@ -112,14 +120,10 @@ public class Solution {
                 if (!hasNext)
                     break;
 
-                for (Integer val : row) {
-                    if (buf.length() > 0)
-                        buf.append(' ');
-                    buf.append(val);
-                }
+                res.addAll(row);
             }
 
-            return buf.toString();
+            return res;
         }
 
         // Decodes your encoded data to tree.
