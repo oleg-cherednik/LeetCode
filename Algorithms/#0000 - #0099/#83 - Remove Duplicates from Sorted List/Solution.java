@@ -80,7 +80,6 @@ public class Solution {
         return head;
     }
 
-
     public static class ListNode {
 
         int val;
