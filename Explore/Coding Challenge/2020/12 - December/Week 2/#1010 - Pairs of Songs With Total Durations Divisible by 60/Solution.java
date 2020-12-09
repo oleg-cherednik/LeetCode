@@ -1,7 +1,3 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * You are given a list of songs where the <tt>i<sup>th</sup></tt> song has a duration of <tt>time[i]</tt> seconds.
  * <p>
