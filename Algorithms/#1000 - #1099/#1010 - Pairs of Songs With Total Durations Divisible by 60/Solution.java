@@ -1,7 +1,3 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * You are given a list of songs where the <tt>i<sup>th</sup></tt> song has a duration of <tt>time[i]</tt> seconds.
  * <p>
@@ -40,17 +36,12 @@ public class Solution {
     }
 
     public static int numPairsDivisibleBy60(int[] time) {
-        Arrays.sort(time);
-
         int res = 0;
-        Map<Integer, Integer> map = new HashMap<>();
+        int[] arr = new int[60];
 
         for (int t : time) {
-            for (int i = (int)Math.ceil(t / 60.) * 60; i <= 2 * t; i += 60)
-                if (map.containsKey(i - t))
-                    res += map.get(i - t);
-
-            map.put(t, map.getOrDefault(t, 0) + 1);
+            res += t % 60 == 0 ? arr[0] : arr[60 - t % 60];
+            arr[t % 60]++;
         }
 
         return res;
