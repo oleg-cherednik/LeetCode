@@ -95,9 +95,5 @@ public class Solution {
         ListNode(int x) {
             val = x;
         }
-
-        public String toString() {
-            return String.valueOf(val);
-        }
     }
 }
