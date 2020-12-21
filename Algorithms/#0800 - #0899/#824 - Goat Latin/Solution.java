@@ -70,10 +70,15 @@ public class Solution {
                 buf.append(word.substring(1)).append(ch);
 
             buf.append("ma");
-            buf.append("a".repeat(i + 1));
+            repeat('a', i + 1, buf);
         }
 
         return buf.toString();
+    }
+
+    private static void repeat(char ch, int total, StringBuilder buf) {
+        for (int i = 0; i < total; i++)
+            buf.append(ch);
     }
 
 }
