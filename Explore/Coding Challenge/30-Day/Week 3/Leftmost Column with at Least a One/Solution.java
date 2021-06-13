@@ -48,12 +48,12 @@ import java.util.List;
  * Input: mat = [[0,0,0,1],[0,0,1,1],[0,1,1,1]]
  * Output: 1
  * </pre>
- * <uL>
+ * <ul>
  * <b>Constraints:</b>
  * <li><tt>1 <= mat.length, mat[i].length <= 100</tt></li>
  * <li><tt>mat[i][j]</tt> is either <tt>0</tt> or <tt>1</tt>.</li>
  * <li><tt>mat[i]</tt> is sorted in a non-decreasing way.</li>
- * </uL>
+ * </ul>
  *
  * @author Oleg Cherednik
  * @since 21.04.2020
