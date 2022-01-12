@@ -1,4 +1,3 @@
-import java.math.BigInteger;
 import java.util.Arrays;
 
 /**
@@ -36,19 +35,21 @@ public class Solution {
     }
 
     public static int[] plusOne(int[] digits) {
-        BigInteger val = BigInteger.ZERO;
+        boolean carry = true;
 
-        for (int i = 0; i < digits.length; i++)
-            val = val.multiply(BigInteger.TEN).add(BigInteger.valueOf(digits[i]));
+        for (int i = digits.length - 1; carry && i >= 0; i--) {
+            carry = digits[i] == 9;
+            digits[i] = carry ? 0 : digits[i] + 1;
+        }
 
-        val = val.add(BigInteger.ONE);
-        String str = val.toString();
-
-        digits = str.length() == digits.length ? digits : new int[str.length()];
-
-        for (int i = 0; i < digits.length; i++)
-            digits[i] = str.charAt(i) - '0';
+        if (carry) {
+            int[] tmp = new int[digits.length + 1];
+            tmp[0] = 1;
+            System.arraycopy(digits, 0, tmp, 1, digits.length);
+            digits = tmp;
+        }
 
         return digits;
     }
+
 }
