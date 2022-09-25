@@ -1,6 +1,5 @@
-import java.util.Comparator;
+import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
@@ -42,7 +41,7 @@ import java.util.Queue;
  * </ul>
  *
  * @author Oleg Cherednik
- * @since 16.05.2020
+ * @since 12.11.2020
  */
 public class Solution {
 
@@ -57,39 +56,39 @@ public class Solution {
     }
 
     public static int goodNodes(TreeNode root) {
-        TreeNode res = new TreeNode(0);
-        Queue<Integer> maxPriorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
-        dfs(root, maxPriorityQueue, res);
-        return res.val;
+        return dfs(root, Integer.MIN_VALUE);
     }
 
-    private static void dfs(TreeNode node, Queue<Integer> maxPriorityQueue, TreeNode res) {
-        if (node == null)
-            return;
+    private static int dfs(TreeNode parent, int max) {
+        if (parent == null)
+            return 0;
 
-        if (maxPriorityQueue.isEmpty() || maxPriorityQueue.element() <= node.val)
-            res.val++;
+        int res = parent.val >= max ? 1 : 0;
+        res += dfs(parent.left, Math.max(parent.val, max));
+        res += dfs(parent.right, Math.max(parent.val, max));
 
-        maxPriorityQueue.add(node.val);
-        dfs(node.left, maxPriorityQueue, res);
-        dfs(node.right, maxPriorityQueue, res);
-        maxPriorityQueue.remove(node.val);
+        return res;
     }
 
     /*
         public static int goodNodes(TreeNode root) {
-            return dfs(root, Integer.MIN_VALUE);
+            TreeNode res = new TreeNode(0);
+            Queue<Integer> maxPriorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+            dfs(root, maxPriorityQueue, res);
+            return res.val;
         }
 
-        private static int dfs(TreeNode parent, int max) {
-            if (parent == null)
-                return 0;
+        private static void dfs(TreeNode node, Queue<Integer> maxPriorityQueue, TreeNode res) {
+            if (node == null)
+                return;
 
-            int res = parent.val >= max ? 1 : 0;
-            res += dfs(parent.left, Math.max(parent.val, max));
-            res += dfs(parent.right, Math.max(parent.val, max));
+            if (maxPriorityQueue.isEmpty() || maxPriorityQueue.element() <= node.val)
+                res.val++;
 
-            return res;
+            maxPriorityQueue.add(node.val);
+            dfs(node.left, maxPriorityQueue, res);
+            dfs(node.right, maxPriorityQueue, res);
+            maxPriorityQueue.remove(node.val);
         }
      */
 
@@ -124,8 +123,13 @@ public class Solution {
         TreeNode left;
         TreeNode right;
 
-        TreeNode(int x) {
-            val = x;
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(val);
         }
     }
 }
