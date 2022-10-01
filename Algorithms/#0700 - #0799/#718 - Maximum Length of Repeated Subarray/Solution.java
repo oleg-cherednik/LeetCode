@@ -38,7 +38,7 @@ import java.util.stream.Collectors;
  * </ul>
  *
  * @author Oleg Cherednik
- * @since 15.06.2020
+ * @since 01.10.2022
  */
 public class Solution {
 
