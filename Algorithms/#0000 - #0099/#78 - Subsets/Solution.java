@@ -29,23 +29,7 @@ import java.util.stream.Collectors;
 public class Solution {
 
     public static void main(String... args) {
-        System.out.println(subsetsToString(1, 2, 3));   // [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
-    }
-
-    public static String subsetsToString(int... nums) {
-        List<List<Integer>> res = subsets(nums);
-
-        StringBuilder buf = new StringBuilder();
-        buf.append('[');
-
-        for (List<Integer> row : res) {
-            if (buf.length() > 1)
-                buf.append(',');
-            buf.append(row.stream().map(String::valueOf).collect(Collectors.joining(",", "[", "]")));
-        }
-
-        buf.append(']');
-        return buf.toString();
+        System.out.println(subsets(new int[] { 1, 2, 3 }));   // [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
     }
 
     public static List<List<Integer>> subsets(int[] nums) {
