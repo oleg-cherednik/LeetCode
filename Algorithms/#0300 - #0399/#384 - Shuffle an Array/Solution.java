@@ -33,7 +33,7 @@ import java.util.stream.Collectors;
  * solution.shuffle();    // Returns the random shuffling of array [1,2,3]. Example: return [1, 3, 2]
  * </pre>
  * <ul>
- * Constraints:
+ * <b>Constraints:</b>
  * <li><tt>1 <= nums.length <= 50</tt></li>
  * <li><tt>-10<sup>6</sup> <= nums[i] <= 10<sup>6</sup></tt></li>
  * <li>All the elements of nums are <b>unique</b>.</li>

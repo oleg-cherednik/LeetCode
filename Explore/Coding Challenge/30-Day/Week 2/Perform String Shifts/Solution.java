@@ -27,7 +27,7 @@
  * [1,3] means shift to right by 3. "abcdefg" -> "efgabcd"
  * </pre>
  * <ul>
- * Constraints:
+ * <b>Constraints:</b>
  * <li><tt>1 <= s.length <= 100</tt></li>
  * <li><tt>s</tt> only contains lower case English letters.</li>
  * <li><tt>1 <= shift.length <= 100</tt></li>

@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
  * Output: []
  * </pre>
  * <ul>
- * Constraints:
+ * <b>Constraints:</b>
  * <li><tt>1 <= words.length <= 100</tt></li>
  * <li><tt>1 <= words[i].length <= 30</tt></li>
  * <li><tt>words[i]</tt> contains only lowercase English letters.</li>

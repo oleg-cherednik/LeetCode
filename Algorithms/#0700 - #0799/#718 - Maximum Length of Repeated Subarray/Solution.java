@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
  * Explanation: The repeated subarray with maximum length is [0,0,0,0,0].
  * </pre>
  * <ul>
- * Constraints:
+ * <b>Constraints:</b>
  * <li><tt>1 <= nums1.length, nums2.length <= 1000</tt></li>
  * <li><tt>0 <= nums1[i], nums2[i] <= 100</tt></li>
  * </ul>
