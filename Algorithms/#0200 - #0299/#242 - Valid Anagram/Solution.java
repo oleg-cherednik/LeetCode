@@ -20,7 +20,7 @@ import java.util.Arrays;
  * <ul>
  * <b>Constraint:</b>
  * <li><tt>1 <= s.length</tt>, <tt>t.length <= 5 * 10<sup>4</sup></tt></li>
- * <li><tt><tt>s</tt> and <tt>t</tt> consist of lowercase English letters</li>
+ * <li><tt>s</tt> and <tt>t</tt> consist of lowercase English letters</li>
  * </ul>
  * <p>
  * <b>Follow up:</b> What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
