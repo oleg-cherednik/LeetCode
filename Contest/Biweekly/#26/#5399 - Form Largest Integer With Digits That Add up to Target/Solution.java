@@ -45,7 +45,7 @@ import java.util.Arrays;
  * <pre>
  * Input: cost = [6,10,15,40,40,40,40,40,40], target = 47
  * Output: "32211"
- * </?pre>
+ * </pre>
  * <ul>
  * <b>Constraints:</b>
  * <li><tt>cost.length == 9</tt></li>

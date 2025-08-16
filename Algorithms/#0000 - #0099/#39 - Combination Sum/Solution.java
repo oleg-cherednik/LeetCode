@@ -39,7 +39,7 @@ import java.util.List;
  * <pre>
  * Input: candidates = [1], target = 2
  * Output: [[1,1]]
- * </?pre>
+ * </pre>
  * <ul>
  * <b>Constraints:</b>
  * <li><tt>1 <= candidates.length <= 30</tt></li>
