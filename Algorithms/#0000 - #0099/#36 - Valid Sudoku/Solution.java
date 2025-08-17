@@ -96,7 +96,13 @@ public class Solution {
 
     public static boolean isValidSudoku(char[][] board) {
         int size = board.length;
-        boolean[] exist = new boolean[10];
+        return isRowsValid(board, size)
+                && isColsValid(board, size)
+                && isSubBoxesValid(board, size);
+    }
+
+    private static boolean isRowsValid(char[][] board, int size) {
+        boolean[] exist = new boolean[size + 1];
 
         for (int row = 0; row < size; row++) {
             Arrays.fill(exist, false);
@@ -116,6 +122,12 @@ public class Solution {
             }
         }
 
+        return true;
+    }
+
+    private static boolean isColsValid(char[][] board, int size) {
+        boolean[] exist = new boolean[size + 1];
+
         for (int col = 0; col < size; col++) {
             Arrays.fill(exist, false);
 
@@ -133,6 +145,12 @@ public class Solution {
                 exist[pos] = true;
             }
         }
+
+        return true;
+    }
+
+    private static boolean isSubBoxesValid(char[][] board, int size) {
+        boolean[] exist = new boolean[size + 1];
 
         for (int row = 0; row + 3 <= size; row += 3) {
             for (int col = 0; col + 3 <= size; col += 3) {
